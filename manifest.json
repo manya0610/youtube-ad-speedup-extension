@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Ad Speed-Up",
+  "version": "1.1",
+  "description": "Speeds up and mutes YouTube ads, and auto-clicks Skip.",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["settings.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube Ad Speed-Up"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
